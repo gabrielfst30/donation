@@ -24,13 +24,13 @@ contract Donation {
 
     //modificador owner
     modifier onlyOwner() {
-        require(msg.sender == owner, "Você não é o proprietário do contrato");
+        require(msg.sender == owner, unicode"Você não é o proprietário do contrato");
         _;
     }
 
     function donate() external payable {
         //validando value
-        require(msg.value > 0, "valor inválido");
+        require(msg.value > 0, unicode"valor inválido");
 
         //incrementando os ids
         ids++;
@@ -60,9 +60,10 @@ contract Donation {
         require(balance > 0, "Balance insuficiente para saque");
     
         //utilizando o método call para resgatarmos o value
-        (bool, success) = (msg.sender).call{value: balance}("");
+        (bool success, ) = (msg.sender).call{value: balance}("");
+
         
         //validação de transferência
-        require(success, "Falha na transferência");
+        require(success, unicode"Falha na transferência");
     }
 }
