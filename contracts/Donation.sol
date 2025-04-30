@@ -1,6 +1,7 @@
 //SPDX-License-Identifier: MIT
-
 pragma solidity ^0.8.29;
+//SEMPRE QUE ALTERAR O CONTRATO NO HARDHAT É NECESSÁRIO RODAR O COMPILE
+//npx hardhat clean && npx hardhat compile
 
 contract Donation {
     //definindo variáveis globais
