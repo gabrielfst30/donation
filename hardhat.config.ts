@@ -13,6 +13,10 @@ const config: HardhatUserConfig = {
       },
     },
   },
+  paths:{
+   
+    artifacts: "../../dapp-donations/src/artifacts"
+  },
   networks: {
     hardhat: {
       chainId: 1337,
