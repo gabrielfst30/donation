@@ -2,6 +2,7 @@ import { HardhatUserConfig } from "hardhat/config";
 import "@nomicfoundation/hardhat-toolbox";
 import "solidity-coverage";
 import "hardhat-watcher";
+import "hardhat-deploy";
 
 const config: HardhatUserConfig = {
   solidity: {
@@ -14,12 +15,16 @@ const config: HardhatUserConfig = {
     },
   },
   paths:{
-   
-    artifacts: "../../dapp-donations/src/artifacts"
+    artifacts: "../dapp-donations/src/artifacts"
   },
   networks: {
     hardhat: {
       chainId: 1337,
+    },
+  },
+  namedAccounts: {
+    deployer: {
+      default: 0, // usa a primeira conta da lista como deployer
     },
   },
   watcher: {
@@ -32,6 +37,7 @@ const config: HardhatUserConfig = {
       verbose: true,
     },
   },
+
 };
 
 export default config;
