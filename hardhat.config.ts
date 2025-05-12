@@ -3,6 +3,11 @@ import "@nomicfoundation/hardhat-toolbox";
 import "solidity-coverage";
 import "hardhat-watcher";
 import "hardhat-deploy";
+import * as dotenv from 'dotenv';
+dotenv.config({ path: __dirname + "/.env" });
+
+// console.log("MONAD_API_URL:", process.env.MONAD_API_URL);
+// console.log(process.env.PRIVATE_KEY_METAMASK); 
 
 const config: HardhatUserConfig = {
   solidity: {
@@ -18,14 +23,27 @@ const config: HardhatUserConfig = {
     artifacts: "../dapp-donations/src/artifacts"
   },
   networks: {
-    hardhat: {
-      chainId: 1337,
-    },
+    // hardhat: {
+    //   chainId: 1337,
+    // },
+    monad:{
+      url: process.env.MONAD_API_URL,
+      accounts: process.env.PRIVATE_KEY_METAMASK_MONAD !== undefined ? [process.env.PRIVATE_KEY_METAMASK_MONAD] : [], //podemos ter mais de uma conta, por isso o array
+    }
   },
   namedAccounts: {
     deployer: {
       default: 0, // usa a primeira conta da lista como deployer
     },
+  },
+  sourcify: {
+    enabled: true,
+    apiUrl: "https://sourcify-api-monad.blockvision.org",
+    browserUrl: "https://testnet.monadexplorer.com"
+  },
+  etherscan:{
+    enabled: false,
+    // apiKey: process.env.ETHERSCAN_API_KEY || ""
   },
   watcher: {
     compilation: {
