@@ -6,8 +6,6 @@ import "hardhat-deploy";
 import * as dotenv from 'dotenv';
 dotenv.config({ path: __dirname + "/.env" });
 
-// console.log("MONAD_API_URL:", process.env.MONAD_API_URL);
-// console.log(process.env.PRIVATE_KEY_METAMASK); 
 
 const config: HardhatUserConfig = {
   solidity: {
