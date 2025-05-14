@@ -5,7 +5,7 @@ pragma solidity ^0.8.29;
 
 contract Donation {
     //definindo variáveis globais
-    address owner; //criandor do contrato
+    address owner; //criando do contrato
     uint256 public total; //total de donations
     uint256 private ids; //ids dos doadores
     Donor[] private donations; //lista de doações
