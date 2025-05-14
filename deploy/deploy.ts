@@ -13,7 +13,7 @@ const deployDonation: DeployFunction = async function (hre: HardhatRuntimeEnviro
     log: true,
   });
 
-  console.log(`Donation deployed at: ${result.address}`);
+  // console.log(`Donation deployed at: ${result.address}`);
 };
 
 export default deployDonation;
